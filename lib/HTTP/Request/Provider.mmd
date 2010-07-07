@@ -7,18 +7,44 @@ HTTP.Request.Provider - Cross-platform HTTP request implementation
 SYNOPSIS
 ========
 
-        // declaring our class
-        Class('HTTP.Request.Provider', {
+        new HTTP.Request.Provider.XHR({
+            method      : 'POST',
+            url         : 'http://my.host.com/some_url',
+            
+            query       : 'some text'
+            
+        }).THEN(function (res) {
+            var status  = res.status
+            var text    = res.text
         
+        }).CATCH(function (e) {
+        
+            var status  = res.status
+        
+        }).now()
+        
+
+        // or
+        
+        var req = new HTTP.Request.Provider.NodeJS({
+            method      : 'POST',
+            
+            postBody    : 'some text'
         })
         
-        // then instantiating it
-        var instance = new HTTP.Request.Provider({
+        req.setHeaders({
+            'X-My-Header' : 'value'
         })
         
-        // and doing something totally awesome with it :D
-        instance.method(param1, param2)
+        req.request('http://my.host.com/some_url').THEN(function (res) {
+            var status  = res.status
+            var text    = res.text
         
+        }).CATCH(function (e) {
+        
+            var status  = res.status
+        
+        }).now()
 
 
 DESCRIPTION

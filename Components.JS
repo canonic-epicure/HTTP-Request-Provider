@@ -6,7 +6,7 @@ COMPONENTS = {
 	],
 	
     
-    "Bundle" : [
+    "Web" : [
     	"jsan:Task.Joose.Core",
     	"+Core"
     ]
