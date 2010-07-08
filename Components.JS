@@ -7,7 +7,20 @@ COMPONENTS = {
 	
     
     "Web" : [
-    	"jsan:Task.Joose.Core",
-    	"+Core"
+    	"+Core",
+        "HTTP.Request.Provider.XHR"
+    ],
+    
+    
+    "NodeJS" : [
+        "+Core",
+        "HTTP.Request.Provider.NodeJS"
+    ],
+    
+    
+    "All" : [
+        "+Core",
+        "HTTP.Request.Provider.XHR",
+        "HTTP.Request.Provider.NodeJS"
     ]
 }
