@@ -1,6 +1,7 @@
 var Harness
+var isNode      = typeof process != 'undefined' && process.pid
 
-if (typeof process != 'undefined' && process.pid) {
+if (isNode) {
     require('Task/Test/Run/NodeJSBundle')
     
     Harness = Test.Run.Harness.NodeJS
@@ -8,11 +9,13 @@ if (typeof process != 'undefined' && process.pid) {
     Harness = Test.Run.Harness.Browser.ExtJS
         
     
-var INC = [ '../lib', '/jsan' ]
+var INC = (isNode ? require.paths : []).concat('../lib', '/jsan')
 
 
 Harness.configure({
 	title 	: 'HTTP.Request.Provider Test Suite',
+    
+    verbosity : 1,
     
 	preload : Joose.is_NodeJS ? [
         "jsan:Task.Joose.Core",
@@ -36,5 +39,6 @@ Harness.configure({
 
 Harness.start(
 	'010_sanity.t.js',
-    '020_xhr.t.js'
+    '020_xhr.t.js',
+    '030_nodejs.t.js'
 )
