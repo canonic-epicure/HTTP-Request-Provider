@@ -18,7 +18,7 @@ COMPONENTS = {
     ],
     
     
-    "All" : [
+    "Auto" : [
         "+Core",
         "HTTP.Request.Provider.XHR",
         "HTTP.Request.Provider.NodeJS"
