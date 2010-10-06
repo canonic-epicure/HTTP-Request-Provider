@@ -17,22 +17,13 @@ Harness.configure({
     
     verbosity : 1,
     
-	preload : Joose.is_NodeJS ? [
+	preload : [
         "jsan:Task.Joose.Core",
-        "jsan:Task.JooseX.Namespace.Depended.NodeJS",
+        "jsan:Task.JooseX.Namespace.Depended.Auto",
         {
-            text : "JooseX.Namespace.Depended.Manager.my.INC = " + JSON.stringify(INC)
+            text : "JooseX.Namespace.Depended.Manager.my.INC = " + Harness.prepareINC(INC)
         },
-        "Task.HTTP.Request.Provider.All"
-        
-    ] : [
-        "jsan:Task.Joose.Core",
-        "jsan:JooseX.SimpleRequest",
-        "jsan:Task.JooseX.Namespace.Depended.Web",
-        {
-            text : "JooseX.Namespace.Depended.Manager.my.INC = " + Ext.encode(Harness.absolutizeINC(INC))
-        },
-        "Task.HTTP.Request.Provider.All"
+        "Task.HTTP.Request.Provider.Auto"
     ]
 })
 
