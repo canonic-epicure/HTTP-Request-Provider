@@ -9,21 +9,13 @@ if (isNode) {
     Harness = Test.Run.Harness.Browser.ExtJS
         
     
-var INC = (isNode ? require.paths : []).concat('../lib', '/jsan')
-
-
 Harness.configure({
 	title 	: 'HTTP.Request.Provider Test Suite',
     
     verbosity : 1,
     
 	preload : [
-        "jsan:Task.Joose.Core",
-        "jsan:Task.JooseX.Namespace.Depended.Auto",
-        {
-            text : "JooseX.Namespace.Depended.Manager.my.INC = " + Harness.prepareINC(INC)
-        },
-        "Task.HTTP.Request.Provider.Auto"
+        '../http-request-provider-test.js'
     ]
 })
 

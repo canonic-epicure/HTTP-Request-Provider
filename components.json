@@ -1,0 +1,45 @@
+{
+	'Core' : [
+		'HTTP.Request.Provider'
+	],
+	
+    
+    'Web' : [
+    	'+Core',
+        'HTTP.Request.Provider.XHR'
+    ],
+    
+    
+    'NodeJS' : [
+        '+Core',
+        'HTTP.Request.Provider.NodeJS'
+    ],
+    
+    
+    Prereq : [
+        'node_modules/joose/joose-all.js',
+        'node_modules/joosex-namespace-depended/joosex-namespace-depended-all.js',
+        'node_modules/joosex-cps/joosex-cps-all.js'
+    ],
+    
+    
+    Test : {
+        saveAs      : 'http-request-provider-test.js',
+        
+        contains    : [
+            '+Prereq',
+            '+Auto'
+        ]
+    },
+    
+    
+    'Auto' : {
+        saveAs      : 'http-request-provider-all.js',
+        
+        contains    : [
+            '+Core',
+            'HTTP.Request.Provider.XHR',
+            'HTTP.Request.Provider.NodeJS'
+        ]
+    }
+}
